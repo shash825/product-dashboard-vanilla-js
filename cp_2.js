@@ -47,3 +47,7 @@ function displayProducts(products) {
         productContainer.appendChild(card);
     });
 }
+
+function handleError(error) {
+    console.error(`Error fetching products: ${error.message}`);
+}
