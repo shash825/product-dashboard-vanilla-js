@@ -25,7 +25,7 @@ function displayProducts(products) {
     const productContainer = document.getElementById('product-container');
 
     products.slice(0, 5).forEach(product => {
-        const { name, price, company } = product.fields;
+        const { name, price, image } = product.fields;
 
         const card = document.createElement('div');
         card.classList.add('product-card');
@@ -40,8 +40,8 @@ function displayProducts(products) {
         const productPrice = document.createElement('p');
         productPrice.textContent = `$${(price / 100).toFixed(2)}`;
 
-        card.appendChild(productName);
         card.appendChild(productImage);
+        card.appendChild(productName);
         card.appendChild(productPrice);
 
         productContainer.appendChild(card);
@@ -49,7 +49,7 @@ function displayProducts(products) {
 }
 
 function handleError(error) {
-    console.error(`Error fetching products: ${error.message}`);
+    console.error(`An error occurred: ${error.message}`);
 }
 
 fetchProductsThen();
