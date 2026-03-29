@@ -20,3 +20,30 @@ async function fetchProductsAsync() {
         handleError(error);
     }
 }
+
+function displayProducts(products) {
+    const productContainer = document.getElementById('product-container');
+
+    products.slice(0, 5).forEach(product => {
+        const { name, price, company } = product.fields;
+
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+
+        const productName = document.createElement('h2');
+        productName.textContent = name;
+
+        const productImage = document.createElement('img');
+        productImage.src = image[0].url;
+        productImage.alt = name;
+
+        const productPrice = document.createElement('p');
+        productPrice.textContent = `$${(price / 100).toFixed(2)}`;
+
+        card.appendChild(productName);
+        card.appendChild(productImage);
+        card.appendChild(productPrice);
+
+        productContainer.appendChild(card);
+    });
+}
